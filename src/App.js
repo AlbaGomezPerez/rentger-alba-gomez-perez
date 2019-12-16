@@ -33,10 +33,19 @@ class App extends React.Component {
 
 
   render() {
+    const {AllCharacters} = this.state;
     return (
         <div className="App">
           <h1>Hola</h1>
+          <ul>
+            {AllCharacters.map((item, index) => {
 
+                  return (
+                      <li key={index}>{item.name}</li>
+                  )
+                }
+            )}
+          </ul>
         </div>
     );
   };
