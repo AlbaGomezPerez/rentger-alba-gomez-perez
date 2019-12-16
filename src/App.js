@@ -1,5 +1,6 @@
 import React from 'react';
 import {GetEpisodes} from './services/GetEpisodes';
+import EpisodeCard from './components/EpisodeCard';
 import './App.css';
 
 class App extends React.Component {
@@ -7,7 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      AllCharacters: [],
+      AllEpisodes: [],
     };
   }
 
@@ -26,26 +27,20 @@ class App extends React.Component {
         .then(data => {
 
           this.setState({
-            AllCharacters : data.results
+            AllEpisodes : data.results
           });
         });
   }
 
 
   render() {
-    const {AllCharacters} = this.state;
+    const {AllEpisodes} = this.state;
     return (
         <div className="App">
           <h1>Hola</h1>
-          <ul>
-            {AllCharacters.map((item, index) => {
-
-                  return (
-                      <li key={index}>{item.name}</li>
-                  )
-                }
-            )}
-          </ul>
+          <EpisodeCard
+              AllEpisodes={AllEpisodes}
+          />
         </div>
     );
   };
