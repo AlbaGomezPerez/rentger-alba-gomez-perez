@@ -1,4 +1,5 @@
 import React from 'react';
+import serie from '../images/serie.jpg';
 // import PropTypes from 'prop-types';
 
 // estructura tarjeta capitulo
@@ -11,7 +12,7 @@ const EpisodeCard = props => {
                         <div className="col s12 m6" key={index}>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src="./images/serie.jpg"></img>
+                                    <img className="materialboxed" src={serie}></img>
                                         <span className="card-title">{item.name}</span>
                                         <a className="btn-floating halfway-fab waves-effect waves-light red"><i
                                             className="material-icons">add</i></a>
