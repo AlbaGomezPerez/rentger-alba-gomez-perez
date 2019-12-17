@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-// estructura tarjeta personaje
+// estructura tarjeta capitulo
 const EpisodeCard = props => {
     const {AllEpisodes} = props;
     return (
