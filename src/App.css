@@ -1,5 +1,16 @@
-.App {
+.app{
   text-align: center;
+}
+
+.title{
+  width: 800px;
+  height: 1px;
+  margin: auto;
+  overflow: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 300px;
+  background-image: url(./images/logo.png);
 }
 
 

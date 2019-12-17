@@ -36,8 +36,8 @@ class App extends React.Component {
   render() {
     const {AllEpisodes} = this.state;
     return (
-        <div className="App">
-          <h1>Hola</h1>
+        <div className="app">
+          <h1 className="title">Rick & Morty</h1>
           <EpisodeCard
               AllEpisodes={AllEpisodes}
           />
