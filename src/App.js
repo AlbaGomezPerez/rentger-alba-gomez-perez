@@ -38,6 +38,14 @@ class App extends React.Component {
     return (
         <div className="app">
           <h1 className="title">Rick & Morty</h1>
+            <div className="switch">
+                <label>
+                    Off
+                    <input type="checkbox"/>
+                        <span className="lever"></span>
+                        On
+                </label>
+            </div>
           <EpisodeCard
               AllEpisodes={AllEpisodes}
           />
