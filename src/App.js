@@ -1,6 +1,7 @@
 import React from 'react';
 import {GetEpisodes} from './services/GetEpisodes';
 import EpisodeCard from './components/EpisodeCard';
+import DetailCard from './components/DetailCard';
 import './App.css';
 
 class App extends React.Component {
@@ -49,6 +50,10 @@ class App extends React.Component {
           <EpisodeCard
               AllEpisodes={AllEpisodes}
           />
+            <DetailCard
+                AllEpisodes={AllEpisodes}
+                Match={routerProps.match}
+            />
         </div>
     );
   };

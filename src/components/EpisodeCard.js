@@ -2,12 +2,13 @@ import React from 'react';
 import serie from '../images/rick.jpg';
 // import PropTypes from 'prop-types';
 
-// estructura tarjeta capitulo
+// card structure
 const EpisodeCard = props => {
     const {AllEpisodes} = props;
-
-
-
+    // let array = characters.map(item =>{
+    //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
+    // });
+    // array.join(',');
     return (
         <div className="row">
             {AllEpisodes.map((item, index) => {
