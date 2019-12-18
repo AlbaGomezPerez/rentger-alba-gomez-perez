@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import {GetEpisodes} from './services/GetEpisodes';
 import EpisodeCard from './components/EpisodeCard';
 import DetailCard from './components/DetailCard';
@@ -39,21 +40,26 @@ class App extends React.Component {
     return (
         <div className="app">
           <h1 className="title">Rick & Morty</h1>
-            <div className="switch">
-                <label>
-                    Off
-                    <input type="checkbox"/>
-                        <span className="lever"></span>
-                        On
-                </label>
-            </div>
+            <Switch>
+                <Route
+                    exact
+                    path="/"
+                    render={routerProps => (
           <EpisodeCard
               AllEpisodes={AllEpisodes}
           />
+                    )}
+                />
+                <Route
+                    path="/character/:id"
+                    render={routerProps => (
             <DetailCard
                 AllEpisodes={AllEpisodes}
                 Match={routerProps.match}
             />
+                    )}
+                />
+            </Switch>
         </div>
     );
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import serie from '../images/rick.jpg';
 // import PropTypes from 'prop-types';
 
@@ -13,7 +14,7 @@ const DetailCard = props => {
                 .map((item, index) => {
                     return (
                         <div className="col s12 m7" key={index}>
-                            <h2 className="header">'Episode'+ {item.name}</h2>
+                            <h2 className="header">{item.name}</h2>
                             <div className="card horizontal">
                                 <div className="card-image">
                                     <img src={serie}/>
