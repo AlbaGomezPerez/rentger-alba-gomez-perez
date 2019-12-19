@@ -12,10 +12,11 @@ const DetailCard = props => {
     return (
         <div className="detailCard-container">
 
-                {AllEpisodes
+
+            const episodeInfo = {AllEpisodes
                     .filter(myEpisode => myEpisode.id === EpisodeId)
 
-                .map((item, index) => {
+                // .map((item, index) => {
 
                     // let charactersUrl = item.characters.map(item =>{
                     //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
@@ -26,7 +27,6 @@ const DetailCard = props => {
                     //     .then(response => response.json())
                     //     .then(data => {
                     //         cartoonsCharacters = data.image
-                    //         console.log(data.image);
                     //     });
 
                     return (
@@ -48,7 +48,7 @@ const DetailCard = props => {
                             </div>
                         </div>
                     )
-                }
+                // }
             )}
         </div>
     );

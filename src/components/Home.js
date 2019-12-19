@@ -24,6 +24,15 @@ const Home = props => {
                 <EpisodesCard
                     AllEpisodes={AllEpisodes}
                 />
+
+            <Route
+                path="/list"
+                render={routerProps => (
+                    <EpisodesList
+                        AllEpisodes={AllEpisodes}
+                    />
+                )}
+            />
         </React.Fragment>
     )
 };

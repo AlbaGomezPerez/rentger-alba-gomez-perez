@@ -15,7 +15,6 @@
 
 
 /*CARD*/
-
 .card{
   background: linear-gradient(90deg,
     rgba(148,179,177,1) 35%,
@@ -41,7 +40,6 @@
 }
 
 /*LIST CARD*/
-
 .collection .collection-item{
   background: linear-gradient(90deg,
     rgba(148,179,177,1) 35%,
