@@ -1,17 +1,34 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import serie from '../images/rick.jpg';
 // import PropTypes from 'prop-types';
 
-//detail card structure
+//DETAIL CARD STRUCTURE
 const DetailCard = props => {
     const {AllEpisodes, Match} = props;
     const EpisodeId = parseInt(Match.params.id);
+
+
+
     return (
         <div className="detailCard-container">
-            {AllEpisodes
-                .filter(myEpisode => myEpisode.id === EpisodeId)
+
+                {AllEpisodes
+                    .filter(myEpisode => myEpisode.id === EpisodeId)
+
                 .map((item, index) => {
+
+                    // let charactersUrl = item.characters.map(item =>{
+                    //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
+                    // });
+                    // charactersUrl.join(',');
+                    //
+                    // fetch(charactersUrl)
+                    //     .then(response => response.json())
+                    //     .then(data => {
+                    //         cartoonsCharacters = data.image
+                    //         console.log(data.image);
+                    //     });
+
                     return (
                         <div className="col s12 m7" key={index}>
                             <h2 className="header">{item.name}</h2>
@@ -49,3 +66,13 @@ export default DetailCard;
 //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
 // });
 // array.join(',');
+
+
+//guardar en una variable el resultado del filter y luego llamas a la variable.name o lo que sea
+
+
+
+
+// function characters() {
+
+// }

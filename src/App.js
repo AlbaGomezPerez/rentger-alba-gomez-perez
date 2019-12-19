@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import {GetEpisodes} from './services/GetEpisodes';
-import EpisodeCard from './components/EpisodeCard';
+import EpisodesCard from './components/EpisodesCard';
+import EpisodesList from './components/EpisodesList';
 import DetailCard from './components/DetailCard';
 import './App.css';
 
@@ -39,15 +40,24 @@ class App extends React.Component {
     const {AllEpisodes} = this.state;
     return (
         <div className="app">
-          <h1 className="title">Rick & Morty</h1>
+          <h1 className="mainTitle">Rick & Morty</h1>
             <Switch>
                 <Route
                     exact
                     path="/"
                     render={routerProps => (
-          <EpisodeCard
+          <EpisodesCard
               AllEpisodes={AllEpisodes}
           />
+                    )}
+                />
+                <Route
+                    exact
+                    path="/list"
+                    render={routerProps => (
+                <EpisodesList
+                    AllEpisodes={AllEpisodes}
+                />
                     )}
                 />
                 <Route
