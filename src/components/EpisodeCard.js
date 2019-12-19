@@ -6,10 +6,6 @@ import serie from '../images/rick.jpg';
 // card structure
 const EpisodeCard = props => {
     const {AllEpisodes} = props;
-    // let array = characters.map(item =>{
-    //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
-    // });
-    // array.join(',');
     return (
         <div className="row">
             <div className="switch">
