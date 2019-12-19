@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import {GetEpisodes} from './services/GetEpisodes';
+import Home from './components/Home';
 import EpisodesCard from './components/EpisodesCard';
 import EpisodesList from './components/EpisodesList';
 import DetailCard from './components/DetailCard';
@@ -46,20 +47,12 @@ class App extends React.Component {
                     exact
                     path="/"
                     render={routerProps => (
-          <EpisodesCard
-              AllEpisodes={AllEpisodes}
-          />
+            <Home
+                AllEpisodes={AllEpisodes}
+            />
                     )}
                 />
-                <Route
-                    exact
-                    path="/list"
-                    render={routerProps => (
-                <EpisodesList
-                    AllEpisodes={AllEpisodes}
-                />
-                    )}
-                />
+
                 <Route
                     path="/character/:id"
                     render={routerProps => (

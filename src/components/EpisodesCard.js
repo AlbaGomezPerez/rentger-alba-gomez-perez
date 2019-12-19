@@ -9,17 +9,6 @@ const EpisodesCard = props => {
     return (
         <div className="row">
 
-            <div className="switch">
-                <Link className="CardLink" to={"/list"}>
-                <label>
-                    Off
-                    <input type="checkbox"/>
-                    <span className="lever"></span>
-                    On
-                </label>
-                </Link>
-            </div>
-
             {AllEpisodes.map((item, index) => {
                     return (
                         <div className="col s12 m6" key={index}>
