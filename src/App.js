@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import {GetEpisodes} from './services/GetEpisodes';
 import Home from './components/Home';
-import EpisodesCard from './components/EpisodesCard';
-import EpisodesList from './components/EpisodesList';
 import DetailCard from './components/DetailCard';
+import EpisodesList from "./components/EpisodesList";
 import './App.css';
+
 
 class App extends React.Component {
   constructor(props){
@@ -14,6 +14,8 @@ class App extends React.Component {
     this.state = {
       AllEpisodes: [],
     };
+
+      this.SwitchClick = this.SwitchClick.bind(this);
   }
 
 
@@ -36,12 +38,16 @@ class App extends React.Component {
         });
   }
 
+    SwitchClick(event) {
+        const changeView = event.currentTarget.value;
+        changeView.onClick("/list")
+    }
+
 
   render() {
     const {AllEpisodes} = this.state;
     return (
         <div className="app">
-          <h1 className="mainTitle">Rick & Morty</h1>
             <Switch>
                 <Route
                     exact
@@ -49,7 +55,17 @@ class App extends React.Component {
                     render={routerProps => (
             <Home
                 AllEpisodes={AllEpisodes}
+                view={this.SwitchClick}
             />
+                    )}
+                />
+
+                <Route
+                    path="/list"
+                    render={routerProps => (
+                        <EpisodesList
+                            AllEpisodes={AllEpisodes}
+                        />
                     )}
                 />
 

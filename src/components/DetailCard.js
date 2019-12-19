@@ -42,7 +42,7 @@ const DetailCard = props => {
                                         <div></div>
                                     </div>
                                     <div className="card-action">
-                                        <a href="#">Go back</a>
+                                        <a className="link-back" href="#">Go back</a>
                                     </div>
                                 </div>
                             </div>

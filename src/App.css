@@ -15,6 +15,17 @@
 
 
 /*CARD*/
+
+.card{
+  background: linear-gradient(90deg,
+    rgba(148,179,177,1) 35%,
+    rgba(148,179,177,1) 35%,
+    rgb(110, 120, 66) 100%);
+  border-radius: 40px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
 .material-icons{
   background-color: #b34b6c;
 }
@@ -29,14 +40,47 @@
   font-weight: 300;
 }
 
+/*LIST CARD*/
+
+.collection .collection-item{
+  background: linear-gradient(90deg,
+    rgba(148,179,177,1) 35%,
+    rgba(148,179,177,1) 35%,
+    rgb(110, 120, 66) 100%);
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1%;
+  border-radius: 20px;
+}
+
+.btn-list{
+  position: relative;
+  top: 20px;
+}
+
+.circle{
+  position: relative;
+  top: 20px;
+}
+
 
 /*DETAIL CARD*/
-.detailCard-container{
+.m7{
+  margin-top: 10%;
 }
 
-.header{
-  margin: 0;
+.card .card-action:last-child{
+  border-radius: 0px;
+  border-top: 0px;
 }
+
+.link-back{
+  font-size: 20px;
+}
+
+
+
+
 
 
 

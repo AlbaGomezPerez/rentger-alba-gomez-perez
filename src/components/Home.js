@@ -1,18 +1,19 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import serie from '../images/rick.jpg';
 import EpisodesCard from "./EpisodesCard";
 import EpisodesList from "./EpisodesList";
 // import PropTypes from 'prop-types';
 
 
 const Home = props => {
-    const {AllEpisodes} = props;
+    const {AllEpisodes, SwitchClick} = props;
     return (
         <React.Fragment>
+            <h1 className="mainTitle">Rick & Morty</h1>
             <div className="switch">
                 <Link className="CardLink" to={"/list"}>
-                    <label>
+                    <label onClick={SwitchClick}>
                         Off
                         <input type="checkbox"/>
                         <span className="lever"></span>
@@ -21,10 +22,6 @@ const Home = props => {
                 </Link>
             </div>
                 <EpisodesCard
-                    AllEpisodes={AllEpisodes}
-                />
-
-                <EpisodesList
                     AllEpisodes={AllEpisodes}
                 />
         </React.Fragment>
