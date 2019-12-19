@@ -8,48 +8,47 @@ const DetailCard = props => {
     const EpisodeId = parseInt(Match.params.id);
 
 
-
     return (
         <div className="detailCard-container">
 
-                {AllEpisodes
-                    .filter(myEpisode => myEpisode.id === EpisodeId)
+            {AllEpisodes
+                .filter(myEpisode => myEpisode.id === EpisodeId)
 
                 .map((item, index) => {
 
-                    // let charactersUrl = item.characters.map(item =>{
-                    //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
-                    // });
-                    // charactersUrl.join(',');
-                    //
-                    // fetch(charactersUrl)
-                    //     .then(response => response.json())
-                    //     .then(data => {
-                    //         cartoonsCharacters = data.image
-                    //         console.log(data.image);
-                    //     });
+                        // let charactersUrl = item.characters.map(item =>{
+                        //     return(item.replace('https://rickandmortyapi.com/api/character/', ''));
+                        // });
+                        // charactersUrl.join(',');
+                        //
+                        // fetch(charactersUrl)
+                        //     .then(response => response.json())
+                        //     .then(data => {
+                        //         cartoonsCharacters = data.image
+                        //         console.log(data.image);
+                        //     });
 
-                    return (
-                        <div className="col s12 m7" key={index}>
-                            <h2 className="header">{item.name}</h2>
-                            <div className="card horizontal">
-                                <div className="card-image">
-                                    <img src={serie}/>
-                                </div>
-                                <div className="card-stacked">
-                                    <div className="card-content">
-                                        <p>{item.air_date}</p>
-                                        <div></div>
+                        return (
+                            <div className="col s12 m7" key={index}>
+                                <h2 className="header">{item.name}</h2>
+                                <div className="card horizontal">
+                                    <div className="card-image">
+                                        <img src={serie}/>
                                     </div>
-                                    <div className="card-action">
-                                        <a className="link-back" href="#">Go back</a>
+                                    <div className="card-stacked">
+                                        <div className="card-content">
+                                            <p>{item.air_date}</p>
+                                            <div></div>
+                                        </div>
+                                        <div className="card-action">
+                                            <a className="link-back" href="#">Go back</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                }
-            )}
+                        )
+                    }
+                )}
         </div>
     );
 };
@@ -69,8 +68,6 @@ export default DetailCard;
 
 
 //guardar en una variable el resultado del filter y luego llamas a la variable.name o lo que sea
-
-
 
 
 // function characters() {
