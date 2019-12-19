@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import serie from '../images/rick.jpg';
 // import PropTypes from 'prop-types';
 
@@ -15,10 +15,10 @@ const EpisodesCard = props => {
                             <div className="card">
                                 <div className="card-image">
                                     <img className="materialboxed" src={serie}></img>
-                                        <span className="card-content">{item.name}</span>
-                                    <Link className="CardLink" to={"/character/" + item.id}>
-                                        <a className="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            className="material-icons">add</i></a>
+                                    <span className="card-content">{item.name}</span>
+                                    <Link className="CardLink" to={"/episode/" + item.id}>
+                                        <div className="btn-floating halfway-fab waves-effect waves-light red"><i
+                                            className="material-icons">add</i></div>
                                     </Link>
                                 </div>
                                 <div className=" card-title">

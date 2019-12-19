@@ -15,10 +15,10 @@ const EpisodesList = props => {
                             <span className="title">{item.name}</span>
                             <p>{item.air_date}</p>
                             <Link className="CardLink" to={"/character/" + item.id}>
-                                <a className="btn-floating halfway-fab waves-effect waves-light red btn-list"><i
-                                    className="material-icons">add</i></a>
+                                <div className="btn-floating halfway-fab waves-effect waves-light red btn-list"><i
+                                    className="material-icons">add</i></div>
                             </Link>
-                            </li>
+                        </li>
                     )
                 }
             )}
