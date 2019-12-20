@@ -3,11 +3,10 @@ import {Link, Route} from 'react-router-dom';
 import EpisodesCard from "./EpisodesCard";
 import EpisodesList from "./EpisodesList";
 import PropTypes from 'prop-types';
-import DetailCard from "./DetailCard";
 
 
 const Home = props => {
-    const {AllEpisodes, switchClick} = props;
+    const {AllEpisodes, switchClick, getEpisodeInput, SearchEpisode} = props;
 
     return (
         <React.Fragment>
@@ -20,12 +19,16 @@ const Home = props => {
                     <i className="material-icons list-icon">dehaze</i>
                 </label>
             </div>
+            <div className="app-filters">
+                <input type="text" className="searchEpisodes" placeholder="Search your a favourite episode" onChange={getEpisodeInput} value={SearchEpisode}/>
+            </div>
             <Route
                 exact
                 path="/"
                 render={routerProps => (
                     <EpisodesCard
                         AllEpisodes={AllEpisodes}
+                        SearchEpisode={SearchEpisode}
                     />
                 )
                 }
@@ -37,6 +40,7 @@ const Home = props => {
                 render={routerProps => (
                     <EpisodesList
                         AllEpisodes={AllEpisodes}
+                        SearchEpisode={SearchEpisode}
                     />
                 )}
             />
@@ -44,9 +48,11 @@ const Home = props => {
     )
 };
 
-DetailCard.propTypes = {
+Home.propTypes = {
     AllEpisodes: PropTypes.array,
-    switchClick: PropTypes.func
+    switchClick: PropTypes.func,
+    SearchEpisode: PropTypes.string,
+    getEpisodeInput: PropTypes.func
 };
 
 export default Home;

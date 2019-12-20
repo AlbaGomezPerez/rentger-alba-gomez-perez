@@ -6,10 +6,12 @@ import DetailCard from "./DetailCard";
 
 
 const EpisodesList = props => {
-    const {AllEpisodes} = props;
+    const {AllEpisodes, SearchEpisode} = props;
     return (
         <ul className="collection">
-            {AllEpisodes.map((item, index) => {
+            {AllEpisodes
+                .filter(myEpisode => myEpisode.name.toUpperCase().includes(SearchEpisode.toUpperCase()))
+                .map((item, index) => {
                     return (
                         <li className="collection-item avatar" key={index}>
                             <img src={character} alt="" className="circle"/>
@@ -20,15 +22,15 @@ const EpisodesList = props => {
                                     className="material-icons add-icons">add</i></div>
                             </Link>
                         </li>
-                    )
-                }
-            )}
+                    );
+                })}
         </ul>
     );
 };
 
 DetailCard.propTypes = {
-    AllEpisodes: PropTypes.array
+    AllEpisodes: PropTypes.array,
+    SearchEpisode: PropTypes.string
 };
 
 export default EpisodesList;

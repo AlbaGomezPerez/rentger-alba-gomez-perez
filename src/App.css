@@ -25,6 +25,11 @@
     background-color: white;
 }
 
+.app-filters{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
 
 /*CARD*/
 .card {

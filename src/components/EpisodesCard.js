@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 
 // card structure
 const EpisodesCard = props => {
-    const {AllEpisodes} = props;
+    const {AllEpisodes, SearchEpisode} = props;
     return (
         <div className="row">
 
-            {AllEpisodes.map((item, index) => {
+            {AllEpisodes
+                .filter(myEpisode => myEpisode.name.toUpperCase().includes(SearchEpisode.toUpperCase()))
+                .map((item, index) => {
                     return (
                         <div className="col s12 m6" key={index}>
                             <div className="card">
@@ -26,15 +28,15 @@ const EpisodesCard = props => {
                                 </div>
                             </div>
                         </div>
-                    )
-                }
-            )}
+                    );
+                })}
         </div>
     );
 };
 
 EpisodesCard.propTypes = {
-    AllEpisodes: PropTypes.array
+    AllEpisodes: PropTypes.array,
+    SearchEpisode: PropTypes.string
 };
 
 

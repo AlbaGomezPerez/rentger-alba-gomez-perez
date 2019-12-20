@@ -12,11 +12,13 @@ class App extends React.Component {
 
         this.state = {
             AllEpisodes: [],
-            CartoonsCharactersInfo: []
+            CartoonsCharactersInfo: [],
+            SearchEpisode: ''
         };
 
         this.switchClick = this.switchClick.bind(this);
         this.updateCharactersInfo = this.updateCharactersInfo.bind(this);
+        this.getEpisodeInput = this.getEpisodeInput.bind(this);
     }
 
 
@@ -52,9 +54,16 @@ class App extends React.Component {
         }
     }
 
+    getEpisodeInput(event){
+        const SearchEpisode = event.currentTarget.value;
+        this.setState({
+            SearchEpisode: SearchEpisode
+        });
+    }
+
 
     render() {
-        const {AllEpisodes, CartoonsCharactersInfo} = this.state;
+        const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode} = this.state;
         return (
             <div className="app">
                 <Switch>
@@ -64,7 +73,9 @@ class App extends React.Component {
                         render={routerProps => (
                             <Home
                                 AllEpisodes={AllEpisodes}
+                                SearchEpisode={SearchEpisode}
                                 switchClick={this.switchClick}
+                                getEpisodeInput={this.getEpisodeInput}
                             />
                         )}
                     />
