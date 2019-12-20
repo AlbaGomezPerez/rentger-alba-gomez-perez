@@ -72,8 +72,23 @@
     border-top: 0px;
 }
 
+.card-image{
+    height: 100%;
+}
+
+.default-image{
+    height: 100%;
+}
+
 .link-back {
     font-size: 20px;
+}
+
+
+.character-image{
+    height: 80px;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 

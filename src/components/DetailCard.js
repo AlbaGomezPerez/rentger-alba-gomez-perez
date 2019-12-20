@@ -25,18 +25,15 @@ const DetailCard = props => {
                 <h2 className="header">{episodeInfo.name}</h2>
                 <div className="card horizontal">
                     <div className="card-image">
-                        <img src={serie}/>
+                        <img className="default-image" src={serie}/>
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <p>{episodeInfo.air_date}</p>
                             <div>
                                 {CartoonsCharactersInfo
                                     .map((characterInfo, index) => {
                                         return(
-                                            <span>
-                                                {characterInfo.name}
-                                            </span>
+                                            <img className="character-image" src={characterInfo.image}/>
                                         )
                                     })
                                 }
