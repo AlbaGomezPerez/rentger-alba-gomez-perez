@@ -1,7 +1,8 @@
 import React from 'react';
 import character from '../images/green.png';
 import {Link} from "react-router-dom";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import DetailCard from "./DetailCard";
 
 
 const EpisodesList = props => {
@@ -14,7 +15,7 @@ const EpisodesList = props => {
                             <img src={character} alt="" className="circle"/>
                             <span className="title">{item.name}</span>
                             <p>{item.air_date}</p>
-                            <Link className="CardLink" to={"/character/" + item.id}>
+                            <Link className="CardLink" to={"/episode/" + item.id}>
                                 <div className="btn-floating halfway-fab waves-effect waves-light red btn-list"><i
                                     className="material-icons">add</i></div>
                             </Link>
@@ -26,5 +27,8 @@ const EpisodesList = props => {
     );
 };
 
+DetailCard.propTypes = {
+    AllEpisodes: PropTypes.array
+};
 
 export default EpisodesList;

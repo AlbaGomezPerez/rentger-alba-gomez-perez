@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import serie from '../images/rick.jpg';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // card structure
 const EpisodesCard = props => {
@@ -31,6 +31,10 @@ const EpisodesCard = props => {
             )}
         </div>
     );
+};
+
+EpisodesCard.propTypes = {
+    AllEpisodes: PropTypes.array
 };
 
 

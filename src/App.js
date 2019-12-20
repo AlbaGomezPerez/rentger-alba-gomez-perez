@@ -12,20 +12,20 @@ class App extends React.Component {
 
         this.state = {
             AllEpisodes: [],
+            CartoonsCharactersInfo: []
         };
 
-        this.SwitchClick = this.SwitchClick.bind(this);
+        this.switchClick = this.switchClick.bind(this);
+        this.updateCharactersInfo = this.updateCharactersInfo.bind(this);
     }
 
 
-// Función sirve para pintar la petición al entrar en la página
     componentDidMount() {
         this.getCartoons();
     }
 
 
-// Función que contiene la segunda parte del fetch, donde se actualiza
-// el estado (array). Es llamada en componentDidMount
+// Second part of fetch and Update state
     getCartoons() {
         GetEpisodes()
             .then(data => {
@@ -36,7 +36,13 @@ class App extends React.Component {
             });
     }
 
-    SwitchClick(event) {
+    updateCharactersInfo(data) {
+        this.setState({
+            CartoonsCharactersInfo: data
+        });
+    }
+
+    switchClick(event) {
         const switchValue = event.currentTarget.checked;
         if(switchValue === true){
             // From: https://tylermcginnis.com/react-router-programmatically-navigate/
@@ -48,7 +54,7 @@ class App extends React.Component {
 
 
     render() {
-        const {AllEpisodes} = this.state;
+        const {AllEpisodes, CartoonsCharactersInfo} = this.state;
         return (
             <div className="app">
                 <Switch>
@@ -58,7 +64,7 @@ class App extends React.Component {
                         render={routerProps => (
                             <Home
                                 AllEpisodes={AllEpisodes}
-                                SwitchClick={this.SwitchClick}
+                                switchClick={this.switchClick}
                             />
                         )}
                     />
@@ -68,7 +74,10 @@ class App extends React.Component {
                         render={routerProps => (
                             <DetailCard
                                 AllEpisodes={AllEpisodes}
+                                CartoonsCharactersInfo={CartoonsCharactersInfo}
+                                updateCharactersInfo={this.updateCharactersInfo}
                                 Match={routerProps.match}
+
                             />
                         )}
                     />

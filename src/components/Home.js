@@ -2,11 +2,12 @@ import React from 'react';
 import {Link, Route} from 'react-router-dom';
 import EpisodesCard from "./EpisodesCard";
 import EpisodesList from "./EpisodesList";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import DetailCard from "./DetailCard";
 
 
 const Home = props => {
-    const {AllEpisodes, SwitchClick} = props;
+    const {AllEpisodes, switchClick} = props;
 
     return (
         <React.Fragment>
@@ -14,7 +15,7 @@ const Home = props => {
             <div className="switch">
                 <label>
                     Off
-                    <input type="checkbox" onChange={SwitchClick}/>
+                    <input type="checkbox" onChange={switchClick}/>
                     <span className="lever"></span>
                     On
                 </label>
@@ -41,6 +42,11 @@ const Home = props => {
             />
         </React.Fragment>
     )
+};
+
+DetailCard.propTypes = {
+    AllEpisodes: PropTypes.array,
+    switchClick: PropTypes.func
 };
 
 export default Home;
