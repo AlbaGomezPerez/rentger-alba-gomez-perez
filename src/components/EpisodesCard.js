@@ -18,7 +18,7 @@ const EpisodesCard = props => {
                                     <span className="card-content">{item.name}</span>
                                     <Link className="CardLink" to={"/episode/" + item.id}>
                                         <div className="btn-floating halfway-fab waves-effect waves-light red"><i
-                                            className="material-icons">add</i></div>
+                                            className="material-icons add-icons">add</i></div>
                                     </Link>
                                 </div>
                                 <div className=" card-title">

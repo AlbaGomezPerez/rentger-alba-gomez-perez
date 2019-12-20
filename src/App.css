@@ -9,8 +9,20 @@
     overflow: hidden;
     background-size: contain;
     background-repeat: no-repeat;
-    padding-top: 300px;
+    padding-top: 250px;
     background-image: url(./images/logo.png);
+}
+
+.switch{
+    margin-bottom: 2%;
+}
+
+.material-icons .list-icon{
+    background-color: white;
+}
+
+.material-icons .card-icon{
+    background-color: white;
 }
 
 
@@ -25,7 +37,7 @@
     margin-left: 5%;
 }
 
-.material-icons {
+.add-icons{
     background-color: #b34b6c;
 }
 
@@ -49,6 +61,10 @@
     margin: auto;
     margin-bottom: 1%;
     border-radius: 20px;
+}
+
+.collection{
+    border: white;
 }
 
 .btn-list {

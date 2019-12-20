@@ -14,10 +14,10 @@ const Home = props => {
             <h1 className="mainTitle">Rick & Morty</h1>
             <div className="switch">
                 <label>
-                    Off
+                    <i className="material-icons card-icon">apps</i>
                     <input type="checkbox" onChange={switchClick}/>
                     <span className="lever"></span>
-                    On
+                    <i className="material-icons list-icon">dehaze</i>
                 </label>
             </div>
             <Route
