@@ -15,13 +15,13 @@ const EpisodesCard = props => {
                             <div className="card">
                                 <div className="card-image">
                                     <img className="materialboxed" src={serie}></img>
-                                    <span className="card-content">{item.name}</span>
+                                    <span className="card-title">{item.name}</span>
                                     <Link className="CardLink" to={"/episode/" + item.id}>
                                         <div className="btn-floating halfway-fab waves-effect waves-light red"><i
                                             className="material-icons add-icons">add</i></div>
                                     </Link>
                                 </div>
-                                <div className=" card-title">
+                                <div className="card-content">
                                     <p>{item.air_date}</p>
                                 </div>
                             </div>
