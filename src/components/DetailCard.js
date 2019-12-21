@@ -6,47 +6,54 @@ import PropTypes from 'prop-types';
 const DetailCard = props => {
     const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match} = props;
     const EpisodeId = parseInt(Match.params.id);
-    const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === EpisodeId);
 
-    let characterIds = episodeInfo.characters.map(item =>{
-        return(item.replace('https://rickandmortyapi.com/api/character/', ''));
-    });
-    characterIds.join(',');
-
-    fetch('https://rickandmortyapi.com/api/character/' + characterIds )
-        .then(response => response.json())
-        .then(data => {
-            updateCharactersInfo(data);
+    if (AllEpisodes !== undefined && AllEpisodes.length > 0){
+        const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === EpisodeId);
+        console.log('espisodio son' + episodeInfo);
+        console.log('personajes son' + AllEpisodes);
+        let characterIds = episodeInfo.characters.map(item =>{
+            return(item.replace('https://rickandmortyapi.com/api/character/', ''));
         });
+        characterIds.join(',');
 
-    return (
-        <div className="detailCard-container">
-            <div className="col s12 m7">
-                <h2 className="header">{episodeInfo.name}</h2>
-                <div className="card horizontal">
-                    <div className="card-image">
-                        <img className="default-image" src={serie}/>
-                    </div>
-                    <div className="card-stacked">
-                        <div className="card-content">
-                            <div>
-                                {CartoonsCharactersInfo
-                                    .map((characterInfo, index) => {
-                                        return(
-                                            <img className="character-image" src={characterInfo.image}/>
-                                        )
-                                    })
-                                }
-                            </div>
+        fetch('https://rickandmortyapi.com/api/character/' + characterIds )
+            .then(response => response.json())
+            .then(data => {
+                updateCharactersInfo(data);
+            });
+
+        return (
+            <div className="detailCard-container">
+                <div className="col s12 m7">
+                    <h2 className="header">{episodeInfo.name}</h2>
+                    <div className="card horizontal">
+                        <div className="card-image">
+                            <img className="default-image" src={serie}/>
                         </div>
-                        <div className="card-action">
-                            <a className="link-back" href="/">Go back</a>
+                        <div className="card-stacked">
+                            <div className="card-content">
+                                <div>
+                                    {CartoonsCharactersInfo
+                                        .map((characterInfo, index) => {
+                                            return(
+                                                <img className="character-image" src={characterInfo.image}/>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            <div className="card-action">
+                                <a className="link-back" href="/">Go back</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }else{
+        return('cargando');
+    }
+
 };
 
 DetailCard.propTypes = {

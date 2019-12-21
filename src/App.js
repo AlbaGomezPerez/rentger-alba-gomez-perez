@@ -23,6 +23,7 @@ class App extends React.Component {
 
 
     componentDidMount() {
+        console.log('funciono.soy did');
         this.getCartoons();
     }
 
@@ -31,7 +32,7 @@ class App extends React.Component {
     getCartoons() {
         GetEpisodes()
             .then(data => {
-
+                console.log('funciono.soy la petición');
                 this.setState({
                     AllEpisodes: data.results
                 });
