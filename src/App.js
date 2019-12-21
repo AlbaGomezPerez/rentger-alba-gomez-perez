@@ -14,7 +14,7 @@ class App extends React.Component {
             AllEpisodes: [],
             CartoonsCharactersInfo: [],
             SearchEpisode: '',
-            DataSwitch:''
+            DataSwitch:[]
         };
 
         this.switchClick = this.switchClick.bind(this);
@@ -40,7 +40,6 @@ class App extends React.Component {
     getCartoons() {
         GetEpisodes()
             .then(data => {
-                console.log('funciono.soy la petición');
                 this.setState({
                     AllEpisodes: data.results
                 });
@@ -84,7 +83,7 @@ class App extends React.Component {
 
 
     render() {
-        const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode} = this.state;
+        const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode, DataSwitch} = this.state;
         return (
             <div className="app">
                 <Switch>
@@ -107,6 +106,7 @@ class App extends React.Component {
                             <DetailCard
                                 AllEpisodes={AllEpisodes}
                                 CartoonsCharactersInfo={CartoonsCharactersInfo}
+                                DataSwitch={DataSwitch}
                                 updateCharactersInfo={this.updateCharactersInfo}
                                 Match={routerProps.match}
 

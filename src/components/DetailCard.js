@@ -4,13 +4,19 @@ import PropTypes from 'prop-types';
 
 //DETAIL CARD STRUCTURE
 const DetailCard = props => {
-    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match} = props;
+    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match, DataSwitch} = props;
     const EpisodeId = parseInt(Match.params.id);
+    let lastSwitchData = DataSwitch[DataSwitch.length - 1];
+    console.log(lastSwitchData);
+    // const linkGoBack = if(lastSwitchData !== true){
+    //    console.log('bien');
+    // }else{
+    //     console.log('mal');
+    // };
+
 
     if (AllEpisodes !== undefined && AllEpisodes.length > 0){
         const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === EpisodeId);
-        console.log('espisodio son' + episodeInfo);
-        console.log('personajes son' + AllEpisodes);
         let characterIds = episodeInfo.characters.map(item =>{
             return(item.replace('https://rickandmortyapi.com/api/character/', ''));
         });
