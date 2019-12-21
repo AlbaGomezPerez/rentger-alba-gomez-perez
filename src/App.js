@@ -13,7 +13,8 @@ class App extends React.Component {
         this.state = {
             AllEpisodes: [],
             CartoonsCharactersInfo: [],
-            SearchEpisode: ''
+            SearchEpisode: '',
+            DataSwitch:''
         };
 
         this.switchClick = this.switchClick.bind(this);
@@ -23,7 +24,14 @@ class App extends React.Component {
 
 
     componentDidMount() {
-        console.log('funciono.soy did');
+        let usersSwitchString = localStorage.getItem("usersData");
+        if(usersSwitchString !== undefined && usersSwitchString !== null){
+            let usersSwitchParsed = JSON.parse(usersSwitchString);
+            this.setState({
+                DataSwitch: usersSwitchParsed
+            })
+        }
+
         this.getCartoons();
     }
 
@@ -53,6 +61,17 @@ class App extends React.Component {
         }else{
             this.props.history.push('/')
         }
+
+        let usersSwitchString = localStorage.getItem("usersData");
+        if(usersSwitchString === '' || usersSwitchString === null || usersSwitchString === undefined){
+            let usersSwitchList = [switchValue];
+            usersSwitchString = JSON.stringify(usersSwitchList);
+        }else{
+            let usersSwitchParsed = JSON.parse(usersSwitchString);
+            usersSwitchParsed.push(switchValue);
+            usersSwitchString = JSON.stringify(usersSwitchParsed);
+        }
+        localStorage.setItem("usersData", usersSwitchString);
     }
 
     getEpisodeInput(event){
@@ -61,6 +80,7 @@ class App extends React.Component {
             SearchEpisode: SearchEpisode
         });
     }
+
 
 
     render() {
