@@ -78,7 +78,6 @@ class App extends React.Component {
 
     render() {
         const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode, DataSwitchChecked} = this.state;
-        console.log(this.props.match.path);
         return (
             <div className="app">
                 <Switch>
