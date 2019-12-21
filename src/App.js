@@ -13,7 +13,7 @@ class App extends React.Component {
             AllEpisodes: [],
             CartoonsCharactersInfo: [],
             SearchEpisode: '',
-            DataSwitch: []
+            DataSwitchChecked: ''
         };
 
         this.switchClick = this.switchClick.bind(this);
@@ -27,7 +27,7 @@ class App extends React.Component {
         if (usersSwitchString !== undefined && usersSwitchString !== null) {
             let usersSwitchParsed = JSON.parse(usersSwitchString);
             this.setState({
-                DataSwitch: usersSwitchParsed
+                DataSwitchChecked: usersSwitchParsed
             })
         }
         this.getCartoons();
@@ -61,16 +61,11 @@ class App extends React.Component {
             this.props.history.push('/')
         }
         //Local storage. Save switch checked
-        let usersSwitchString = localStorage.getItem("usersData");
-        if (usersSwitchString === '' || usersSwitchString === null || usersSwitchString === undefined) {
-            let usersSwitchList = [switchValue];
-            usersSwitchString = JSON.stringify(usersSwitchList);
-        } else {
-            let usersSwitchParsed = JSON.parse(usersSwitchString);
-            usersSwitchParsed.push(switchValue);
-            usersSwitchString = JSON.stringify(usersSwitchParsed);
-        }
+        let usersSwitchString = JSON.stringify(switchValue);
         localStorage.setItem("usersData", usersSwitchString);
+        this.setState({
+            DataSwitchChecked: switchValue
+        })
     }
 
     getEpisodeInput(event) {
@@ -82,7 +77,8 @@ class App extends React.Component {
 
 
     render() {
-        const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode, DataSwitch} = this.state;
+        const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode, DataSwitchChecked} = this.state;
+        console.log(this.props.match.path);
         return (
             <div className="app">
                 <Switch>
@@ -93,6 +89,7 @@ class App extends React.Component {
                             <Home
                                 AllEpisodes={AllEpisodes}
                                 SearchEpisode={SearchEpisode}
+                                DataSwitchChecked={DataSwitchChecked}
                                 switchClick={this.switchClick}
                                 getEpisodeInput={this.getEpisodeInput}
                             />
@@ -105,7 +102,7 @@ class App extends React.Component {
                             <DetailCard
                                 AllEpisodes={AllEpisodes}
                                 CartoonsCharactersInfo={CartoonsCharactersInfo}
-                                DataSwitch={DataSwitch}
+                                DataSwitchChecked={DataSwitchChecked}
                                 updateCharactersInfo={this.updateCharactersInfo}
                                 Match={routerProps.match}
 

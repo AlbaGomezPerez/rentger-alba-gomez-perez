@@ -1,23 +1,21 @@
 import React from 'react';
 import serie from '../images/rick.jpg';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
 
 //Detail episode card structure
 const DetailCard = props => {
-    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match, DataSwitch} = props;
-
+    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match, DataSwitchChecked} = props;
     //parse id of this episode
     const EpisodeId = parseInt(Match.params.id);
 
     //Get last data in localstorage
-    let lastSwitchData = DataSwitch[DataSwitch.length - 1];
-    console.log(lastSwitchData);
-
-    // const linkGoBack = if(lastSwitchData !== true){
-    //    console.log('bien');
-    // }else{
-    //     console.log('mal');
-    // };
+    let urlGoBack = '';
+    if(DataSwitchChecked === false){
+        urlGoBack = '/';
+    }else{
+        urlGoBack = '/list';
+    };
 
     //message "loading" while AllEpisodes are coming
     if (AllEpisodes !== undefined && AllEpisodes.length > 0){
@@ -56,7 +54,7 @@ const DetailCard = props => {
                                 </div>
                             </div>
                             <div className="card-action">
-                                <a className="link-back" href="/">Go back</a>
+                                <Link className="link-back" to={urlGoBack}>Go back</Link>
                             </div>
                         </div>
                     </div>
@@ -73,7 +71,8 @@ DetailCard.propTypes = {
     AllEpisodes: PropTypes.array,
     CartoonsCharactersInfo: PropTypes.array,
     updateCharactersInfo: PropTypes.func,
-    Match: PropTypes.object
+    Match: PropTypes.object,
+    DataSwitchChecked: PropTypes.bool
 };
 
 
