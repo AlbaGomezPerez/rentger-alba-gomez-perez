@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import DetailCard from "./DetailCard";
 
-
+//List structure
 const EpisodesList = props => {
     const {AllEpisodes, SearchEpisode} = props;
     return (
@@ -14,7 +14,7 @@ const EpisodesList = props => {
                 .map((item, index) => {
                     return (
                         <li className="collection-item avatar" key={index}>
-                            <img src={character} alt="" className="circle"/>
+                            <img src={character} alt="Rick & Morty" className="circle"/>
                             <span className="title">{item.name}</span>
                             <p>{item.air_date}</p>
                             <Link className="CardLink" to={"/episode/" + item.id}>

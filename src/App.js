@@ -1,10 +1,9 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import {GetEpisodes} from './services/GetEpisodes';
 import Home from './components/Home';
 import DetailCard from './components/DetailCard';
 import './App.css';
-import {withRouter} from 'react-router-dom'
 
 class App extends React.Component {
     constructor(props) {
@@ -14,7 +13,7 @@ class App extends React.Component {
             AllEpisodes: [],
             CartoonsCharactersInfo: [],
             SearchEpisode: '',
-            DataSwitch:[]
+            DataSwitch: []
         };
 
         this.switchClick = this.switchClick.bind(this);
@@ -25,13 +24,12 @@ class App extends React.Component {
 
     componentDidMount() {
         let usersSwitchString = localStorage.getItem("usersData");
-        if(usersSwitchString !== undefined && usersSwitchString !== null){
+        if (usersSwitchString !== undefined && usersSwitchString !== null) {
             let usersSwitchParsed = JSON.parse(usersSwitchString);
             this.setState({
                 DataSwitch: usersSwitchParsed
             })
         }
-
         this.getCartoons();
     }
 
@@ -46,26 +44,28 @@ class App extends React.Component {
             });
     }
 
+    //Characters info
     updateCharactersInfo(data) {
         this.setState({
             CartoonsCharactersInfo: data
         });
     }
 
+    //get switch checked
+    // From: https://tylermcginnis.com/react-router-programmatically-navigate/
     switchClick(event) {
         const switchValue = event.currentTarget.checked;
-        if(switchValue === true){
-            // From: https://tylermcginnis.com/react-router-programmatically-navigate/
+        if (switchValue === true) {
             this.props.history.push('/list')
-        }else{
+        } else {
             this.props.history.push('/')
         }
-
+        //Local storage. Save switch checked
         let usersSwitchString = localStorage.getItem("usersData");
-        if(usersSwitchString === '' || usersSwitchString === null || usersSwitchString === undefined){
+        if (usersSwitchString === '' || usersSwitchString === null || usersSwitchString === undefined) {
             let usersSwitchList = [switchValue];
             usersSwitchString = JSON.stringify(usersSwitchList);
-        }else{
+        } else {
             let usersSwitchParsed = JSON.parse(usersSwitchString);
             usersSwitchParsed.push(switchValue);
             usersSwitchString = JSON.stringify(usersSwitchParsed);
@@ -73,13 +73,12 @@ class App extends React.Component {
         localStorage.setItem("usersData", usersSwitchString);
     }
 
-    getEpisodeInput(event){
+    getEpisodeInput(event) {
         const SearchEpisode = event.currentTarget.value;
         this.setState({
             SearchEpisode: SearchEpisode
         });
     }
-
 
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import EpisodesCard from "./EpisodesCard";
 import EpisodesList from "./EpisodesList";
 import PropTypes from 'prop-types';
