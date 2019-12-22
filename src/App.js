@@ -22,6 +22,10 @@ class App extends React.Component {
     }
 
 
+    /**
+      * Run when the page is open. The user don't have to do anything.
+     This part is self-executed
+      */
     componentDidMount() {
         let usersSwitchString = localStorage.getItem("usersData");
         if (usersSwitchString !== undefined && usersSwitchString !== null) {

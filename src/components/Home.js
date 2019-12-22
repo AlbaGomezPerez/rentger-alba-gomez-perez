@@ -20,7 +20,8 @@ const Home = props => {
                 </label>
             </div>
             <div className="app-filters">
-                <input type="text" className="searchEpisodes" placeholder="Search your a favourite episode" onChange={getEpisodeInput} value={SearchEpisode}/>
+                <input type="text" className="searchEpisodes" placeholder="Search your a favourite episode"
+                       onChange={getEpisodeInput} value={SearchEpisode}/>
             </div>
             <Switch>
                 <Route

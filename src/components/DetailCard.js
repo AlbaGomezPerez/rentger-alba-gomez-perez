@@ -11,23 +11,24 @@ const DetailCard = props => {
 
     //Get last data in localstorage
     let urlGoBack = '';
-    if(DataSwitchChecked === false){
+    if (DataSwitchChecked === false) {
         urlGoBack = '/';
-    }else{
+    } else {
         urlGoBack = '/list';
-    };
+    }
+    ;
 
     //message "loading" while AllEpisodes are coming
-    if (AllEpisodes !== undefined && AllEpisodes.length > 0){
+    if (AllEpisodes !== undefined && AllEpisodes.length > 0) {
         const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === EpisodeId);
 
         //Get id episode and fetch
-        let characterIds = episodeInfo.characters.map(item =>{
-            return(item.replace('https://rickandmortyapi.com/api/character/', ''));
+        let characterIds = episodeInfo.characters.map(item => {
+            return (item.replace('https://rickandmortyapi.com/api/character/', ''));
         });
         characterIds.join(',');
 
-        fetch('https://rickandmortyapi.com/api/character/' + characterIds )
+        fetch('https://rickandmortyapi.com/api/character/' + characterIds)
             .then(response => response.json())
             .then(data => {
                 updateCharactersInfo(data);
@@ -39,15 +40,16 @@ const DetailCard = props => {
                     <h2 className="header">{episodeInfo.name}</h2>
                     <div className="card horizontal">
                         <div className="card-image">
-                            <img className="default-image"  alt="Rick & Morty" src={serie}/>
+                            <img className="default-image" alt="Rick & Morty" src={serie}/>
                         </div>
                         <div className="card-stacked">
                             <div className="card-content">
                                 <div>
                                     {CartoonsCharactersInfo
                                         .map((characterInfo, index) => {
-                                            return(
-                                                <img key={index} className="character-image" alt={characterInfo.name} src={characterInfo.image}/>
+                                            return (
+                                                <img key={index} className="character-image" alt={characterInfo.name}
+                                                     src={characterInfo.image}/>
                                             )
                                         })
                                     }
@@ -61,8 +63,8 @@ const DetailCard = props => {
                 </div>
             </div>
         );
-    }else{
-        return('loading');
+    } else {
+        return ('loading');
     }
 
 };
