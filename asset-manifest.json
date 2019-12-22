@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rentger-alba-gomez-perez/static/css/main.a2b37f3c.chunk.css",
-    "main.js": "/rentger-alba-gomez-perez/static/js/main.de1f9180.chunk.js",
-    "main.js.map": "/rentger-alba-gomez-perez/static/js/main.de1f9180.chunk.js.map",
+    "main.js": "/rentger-alba-gomez-perez/static/js/main.6f88a4bf.chunk.js",
+    "main.js.map": "/rentger-alba-gomez-perez/static/js/main.6f88a4bf.chunk.js.map",
     "runtime-main.js": "/rentger-alba-gomez-perez/static/js/runtime-main.e2292c24.js",
     "runtime-main.js.map": "/rentger-alba-gomez-perez/static/js/runtime-main.e2292c24.js.map",
     "static/js/2.7b9f6249.chunk.js": "/rentger-alba-gomez-perez/static/js/2.7b9f6249.chunk.js",
     "static/js/2.7b9f6249.chunk.js.map": "/rentger-alba-gomez-perez/static/js/2.7b9f6249.chunk.js.map",
     "index.html": "/rentger-alba-gomez-perez/index.html",
-    "precache-manifest.203efd2b4b926c8ec0d00b7a37092972.js": "/rentger-alba-gomez-perez/precache-manifest.203efd2b4b926c8ec0d00b7a37092972.js",
+    "precache-manifest.dc77446830d4f35ffd3b12253dc9e5ef.js": "/rentger-alba-gomez-perez/precache-manifest.dc77446830d4f35ffd3b12253dc9e5ef.js",
     "service-worker.js": "/rentger-alba-gomez-perez/service-worker.js",
     "static/css/main.a2b37f3c.chunk.css.map": "/rentger-alba-gomez-perez/static/css/main.a2b37f3c.chunk.css.map",
     "static/js/2.7b9f6249.chunk.js.LICENSE": "/rentger-alba-gomez-perez/static/js/2.7b9f6249.chunk.js.LICENSE",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.e2292c24.js",
     "static/js/2.7b9f6249.chunk.js",
     "static/css/main.a2b37f3c.chunk.css",
-    "static/js/main.de1f9180.chunk.js"
+    "static/js/main.6f88a4bf.chunk.js"
   ]
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rentger-alba-gomez-perez/precache-manifest.203efd2b4b926c8ec0d00b7a37092972.js"
+  "/rentger-alba-gomez-perez/precache-manifest.dc77446830d4f35ffd3b12253dc9e5ef.js"
 );
 
 self.addEventListener('message', (event) => {
