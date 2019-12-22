@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Rick & Morty Episodes
+This project is a web page which you can search info about Rick & Morty Episodes. 
+
+### Technical details
+The project has three important parts: Fetch (get data episodes), 
+cards (it offers you two kind of views, list and card) and detail cards (with more information 
+about the episodes)
+The languages used are HTML, JavaScript, CSS, materialize css and React with Components, React Router...
+
+
 ## Available Scripts
 
 In the project directory, you can run:
