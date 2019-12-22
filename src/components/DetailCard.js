@@ -9,7 +9,10 @@ const DetailCard = props => {
     //parse id of this episode
     const episodeId = parseInt(match.params.id);
 
-    //Get last data in localstorage
+
+    /**
+      * Get last data in localstorage
+     **/
     let urlGoBack = '';
     if (DataSwitchChecked === false) {
         urlGoBack = '/';
@@ -18,11 +21,15 @@ const DetailCard = props => {
     }
     ;
 
-    //message "loading" while AllEpisodes are coming
+    /**
+      * If there are serie data, the component render, else show message "loading" while AllEpisodes are coming
+     **/
     if (AllEpisodes !== undefined && AllEpisodes.length > 0) {
         const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === episodeId);
 
-        //Get id episode and build the characters url to do the fetch
+        /**
+          * Get id episode and build the characters url to do the fetch
+         **/
         let characterIds = episodeInfo.characters.map(item => {
             return (item.replace('https://rickandmortyapi.com/api/character/', ''));
         });

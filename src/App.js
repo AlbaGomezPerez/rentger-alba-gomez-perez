@@ -25,7 +25,7 @@ class App extends React.Component {
     /**
       * Run when the page is open. The user don't have to do anything.
      This part is self-executed
-      */
+     **/
     componentDidMount() {
         let usersSwitchString = localStorage.getItem("usersData");
         if (usersSwitchString !== undefined && usersSwitchString !== null) {
@@ -37,8 +37,9 @@ class App extends React.Component {
         this.getCartoons();
     }
 
-
-// Second part of fetch and Update state
+    /**
+      * Second part of fetch and Update state
+     **/
     getCartoons() {
         GetEpisodes()
             .then(data => {
@@ -48,15 +49,20 @@ class App extends React.Component {
             });
     }
 
-    //Characters info
+
+    /**
+      * Characters info
+     **/
     updateCharactersInfo(data) {
         this.setState({
             CartoonsCharactersInfo: data
         });
     }
 
-    //get switch checked
-    // From: https://tylermcginnis.com/react-router-programmatically-navigate/
+    /**
+      * get switch checked
+     From: https://tylermcginnis.com/react-router-programmatically-navigate/
+     **/
     switchClick(event) {
         const switchValue = event.currentTarget.checked;
         if (switchValue === true) {
