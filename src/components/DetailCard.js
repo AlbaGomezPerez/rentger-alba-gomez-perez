@@ -5,9 +5,9 @@ import {Link} from "react-router-dom";
 
 //Detail episode card structure
 const DetailCard = props => {
-    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, Match, DataSwitchChecked} = props;
+    const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, match, DataSwitchChecked} = props;
     //parse id of this episode
-    const EpisodeId = parseInt(Match.params.id);
+    const episodeId = parseInt(match.params.id);
 
     //Get last data in localstorage
     let urlGoBack = '';
@@ -20,9 +20,9 @@ const DetailCard = props => {
 
     //message "loading" while AllEpisodes are coming
     if (AllEpisodes !== undefined && AllEpisodes.length > 0) {
-        const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === EpisodeId);
+        const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === episodeId);
 
-        //Get id episode and fetch
+        //Get id episode and build the characters url to do the fetch
         let characterIds = episodeInfo.characters.map(item => {
             return (item.replace('https://rickandmortyapi.com/api/character/', ''));
         });

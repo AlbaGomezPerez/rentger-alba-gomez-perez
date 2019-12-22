@@ -107,7 +107,7 @@ class App extends React.Component {
                                 CartoonsCharactersInfo={CartoonsCharactersInfo}
                                 DataSwitchChecked={DataSwitchChecked}
                                 updateCharactersInfo={this.updateCharactersInfo}
-                                Match={routerProps.match}
+                                match={routerProps.match}
 
                             />
                         )}
