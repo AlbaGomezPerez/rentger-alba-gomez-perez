@@ -4,16 +4,16 @@ import serie from '../images/rick.jpg';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 
-//Detail episode card structure
+/**
+ * Detail episode card structure
+ */
 const DetailCard = props => {
     const {AllEpisodes, CartoonsCharactersInfo, updateCharactersInfo, match, DataSwitchChecked} = props;
     //parse id of this episode
     const episodeId = parseInt(match.params.id);
 
 
-    /**
-      * Get last data in localstorage
-     **/
+    // Get last data in localstorage
     let urlGoBack = '';
     if (DataSwitchChecked === false) {
         urlGoBack = '/';
@@ -22,24 +22,20 @@ const DetailCard = props => {
     }
     ;
 
-    /**
-      * If there are serie data, the component render, else show message "loading" while AllEpisodes are coming
-     **/
+    // If there are serie data, the component render, else show message "loading" while AllEpisodes are coming
     if (AllEpisodes !== undefined && AllEpisodes.length > 0) {
         const episodeInfo = AllEpisodes.find(myEpisode => myEpisode.id === episodeId);
 
-        /**
-          * Get id episode and build the characters url to do the fetch
-         **/
+        //Get id episode and build the characters url to do the fetch
         let characterIds = episodeInfo.characters.map(item => {
             return (item.replace('https://rickandmortyapi.com/api/character/', ''));
         });
         characterIds.join(',');
 
-            GetCharacters(characterIds)
-                .then(data => {
-                    updateCharactersInfo(data);
-                });
+        GetCharacters(characterIds)
+            .then(data => {
+                updateCharactersInfo(data);
+        });
 
         return (
             <div className="detailCard-container">

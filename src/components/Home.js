@@ -4,7 +4,17 @@ import EpisodesCard from "./EpisodesCard";
 import EpisodesList from "./EpisodesList";
 import PropTypes from 'prop-types';
 
-
+/**
+ * Render a view with a checkbox to select the view mode, an input to search by name of episode
+ * and one of two components from: EpisodesCard or EpisodesList
+ * @param props
+ *  - AllEpisodes: list with all episodes
+ *  - switchClick: function to change list/card mode when swtich is clicked
+ *  - getEpisodeInput: function to store the input text value into the state
+ *  - SearchEpisode: text value that the users writes into the input
+ *  - DataSwitchChecked: true if the switch must be checked or false otherwise
+ * @returns the html content for this component
+ */
 const Home = props => {
     const {AllEpisodes, switchClick, getEpisodeInput, SearchEpisode, DataSwitchChecked} = props;
 

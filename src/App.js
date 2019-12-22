@@ -5,6 +5,9 @@ import Home from './components/Home';
 import DetailCard from './components/DetailCard';
 import './App.css';
 
+/**
+ * Component father that contains all others components
+ */
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -23,9 +26,10 @@ class App extends React.Component {
 
 
     /**
-      * Run when the page is open. The user don't have to do anything.
-     This part is self-executed
-     **/
+     * Get data from localstore to show episodes in the appropiate mode
+     * and store the value into the state
+     * Also it calls the API to get all episodes
+     */
     componentDidMount() {
         let usersSwitchString = localStorage.getItem("usersData");
         if (usersSwitchString !== undefined && usersSwitchString !== null) {
@@ -38,8 +42,8 @@ class App extends React.Component {
     }
 
     /**
-      * Second part of fetch and Update state
-     **/
+      * Call the API to get all episodes and store them in state
+      */
     getCartoons() {
         GetEpisodes()
             .then(data => {
@@ -51,8 +55,8 @@ class App extends React.Component {
 
 
     /**
-      * Characters info
-     **/
+      * Store characters info into the state
+      */
     updateCharactersInfo(data) {
         this.setState({
             CartoonsCharactersInfo: data
@@ -60,9 +64,10 @@ class App extends React.Component {
     }
 
     /**
-      * get switch checked
-     From: https://tylermcginnis.com/react-router-programmatically-navigate/
-     **/
+      * Change the component based on the switch checked and store the value into the localstorage.
+      * This method is executed when we click on the switch button
+      * @see to change component: https://tylermcginnis.com/react-router-programmatically-navigate/
+      */
     switchClick(event) {
         const switchValue = event.currentTarget.checked;
         if (switchValue === true) {
@@ -78,6 +83,10 @@ class App extends React.Component {
         })
     }
 
+    /**
+     * Store in state the given text to search episodes by name
+     * @param event the object that contains the text written by the user
+     */
     getEpisodeInput(event) {
         const SearchEpisode = event.currentTarget.value;
         this.setState({
@@ -85,7 +94,10 @@ class App extends React.Component {
         });
     }
 
-
+    /**
+     * Render the list/card component or the detail component based on URL
+     * @returns html with all content
+     */
     render() {
         const {AllEpisodes, CartoonsCharactersInfo, SearchEpisode, DataSwitchChecked} = this.state;
         return (

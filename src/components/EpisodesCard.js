@@ -3,7 +3,13 @@ import {Link} from "react-router-dom";
 import serie from '../images/rick.jpg';
 import PropTypes from 'prop-types';
 
-// Card structure
+/**
+ * Render the HTML episodes list in card format
+ * @param props
+ *  - AllEpisodes: list with all episodes
+ *  - SearchEpisode: text value that the users writes into the input
+ * @returns the HTML generated
+ */
 const EpisodesCard = props => {
     const {AllEpisodes, SearchEpisode} = props;
     return (

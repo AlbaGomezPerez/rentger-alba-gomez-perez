@@ -4,7 +4,13 @@ import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import DetailCard from "./DetailCard";
 
-//List structure
+/**
+ * Render the HTML episodes list in list format
+ * @param props
+ *  - AllEpisodes: list with all episodes
+ *  - SearchEpisode: text value that the users writes into the input
+ * @returns the HTML generated
+ */
 const EpisodesList = props => {
     const {AllEpisodes, SearchEpisode} = props;
     return (
