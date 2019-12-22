@@ -47,7 +47,7 @@ const DetailCard = props => {
                                     {CartoonsCharactersInfo
                                         .map((characterInfo, index) => {
                                             return(
-                                                <img key={index} className="character-image" alt="Character's Rick & Morty" src={characterInfo.image}/>
+                                                <img key={index} className="character-image" alt={characterInfo.name} src={characterInfo.image}/>
                                             )
                                         })
                                     }
