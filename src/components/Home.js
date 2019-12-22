@@ -53,8 +53,7 @@ Home.propTypes = {
     AllEpisodes: PropTypes.array,
     switchClick: PropTypes.func,
     SearchEpisode: PropTypes.string,
-    getEpisodeInput: PropTypes.func,
-    DataSwitchChecked: PropTypes.bool
+    getEpisodeInput: PropTypes.func
 };
 
 export default Home;

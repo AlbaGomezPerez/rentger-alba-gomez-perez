@@ -1,4 +1,5 @@
 import React from 'react';
+import {GetCharacters} from '../services/GetEpisodes';
 import serie from '../images/rick.jpg';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
@@ -35,11 +36,10 @@ const DetailCard = props => {
         });
         characterIds.join(',');
 
-        fetch('https://rickandmortyapi.com/api/character/' + characterIds)
-            .then(response => response.json())
-            .then(data => {
-                updateCharactersInfo(data);
-            });
+            GetCharacters(characterIds)
+                .then(data => {
+                    updateCharactersInfo(data);
+                });
 
         return (
             <div className="detailCard-container">
@@ -55,7 +55,7 @@ const DetailCard = props => {
                                     {CartoonsCharactersInfo
                                         .map((characterInfo, index) => {
                                             return (
-                                                <img key={index} className="character-image" alt={characterInfo.name}
+                                                <img key={index} className="character-image"  alt={characterInfo.name}
                                                      src={characterInfo.image}/>
                                             )
                                         })
@@ -81,7 +81,7 @@ DetailCard.propTypes = {
     CartoonsCharactersInfo: PropTypes.array,
     updateCharactersInfo: PropTypes.func,
     Match: PropTypes.object,
-    DataSwitchChecked: PropTypes.bool
+    DataSwitchChecked: PropTypes.boolean
 };
 
 
